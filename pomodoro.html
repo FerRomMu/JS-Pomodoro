@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pomodoro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+  <main class="container">
+    <section class="clock">
+      <h1 class="status">To be started</h1>
+      <h2 class="display">0:00</h2>
+      <h3 class="set">Set 0</h2>
+    </section>
+
+    <section class="setting">
+      <div class="input_container">
+        <label for="input_work">Work time</label>
+        <input class="input_setting" id="input_work" type="number" value="25"></input>
+      </div>
+      <div class="input_container">
+        <label for="input_rest">Rest time</label>
+        <input class="input_setting" id="input_rest" type="number" value="5"></input>
+      </div>
+      <div class="input_container">
+        <label class="label" for="input_longRest">Long Rest time</label>
+        <input class="input_setting" id="input_longRest" type="number" value="30"></input>
+      </div>
+      <div class="input_container">
+        <label for="input_sets">Sets</label>
+        <input class="input_setting" id="input_sets" type="number" value="3"></input>
+      </div>
+    </section>
+
+    <section class="btns">
+      <div class="btns_container">
+        <button class="start_btn">Begin</button>
+        <button class="reset_btn">Reset</button>
+      </div>
+      <div class="checkbox_container">
+        <input type="checkbox" id="auto">
+        <label for="auto">Auto</label>
+      </div>
+    </section>
+  </main>
+</body>
