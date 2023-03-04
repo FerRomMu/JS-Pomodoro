@@ -8,6 +8,7 @@ const setInput = document.getElementById("input_sets");
 const statusTitle = document.querySelector(".status")
 const setTitle = document.querySelector(".set")
 const autoCheckbox = document.getElementById("auto")
+const progressBar = document.querySelector('.progress-bar')
 
 //Se inicializa cycleDone en dos para que empiece en el "set 1" en vez del "set 0"
 let cyclesDone = 2
@@ -33,6 +34,9 @@ const stopCycle = () => {
   clearInterval(intervalId)
   onCycle = false
   clock.textContent = "00:00"
+  
+  progressBar.style.background = "#d81818"
+  progressBar.style.width = (cyclesDone * 100 / totalSets()) + "vw"
 }
 
 //Función que pasa al siguiente estado
@@ -49,8 +53,10 @@ const next = () => {
 //Función que inicializa un ciclo con el tiempo correspondiente al estado actual del pomodoro.
 const startCycle = () => {
 
+  
   if(!onCycle) {
     onCycle = true
+    progressBar.style.background = "#4A98F7"
 
     console.log(state.status)
     statusTitle.textContent = state.status
@@ -71,6 +77,8 @@ const startCycle = () => {
       clock.textContent = timeString
       document.title = timeString + " Pomodoro"
 
+      progressBar.style.width = 100 - time * 100 / (parseFloat(state.time())*60) + "vw"
+
       if (time <= 0) {
         doBips()
         stopCycle()
@@ -84,10 +92,12 @@ const startCycle = () => {
 startButton.addEventListener("click", startCycle)
 
 resetButton.addEventListener("click", () => {
+  cyclesDone = 2
   stopCycle()
   state = work
-  cyclesDone = 2
   statusTitle.textContent = "To be started"
+  progressBar.style.width = 0
+  setTitle.textContent = "Set 0"
 })
 
 
